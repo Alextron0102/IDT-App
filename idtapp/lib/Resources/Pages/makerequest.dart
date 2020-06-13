@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:idtapp/Resources/Util/messagebox.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:idtapp/Resources/Util/listadato.dart';
+import 'package:idtapp/Resources/Util/dato.dart';
+import 'package:idtapp/Resources/Util/repuesto.dart';
 
 class MakeRequest extends StatefulWidget {
   static final name = '/MakeRequest';
@@ -10,9 +12,44 @@ class MakeRequest extends StatefulWidget {
 }
 
 class _MakeRequestState extends State<MakeRequest> {
-  final arr = ['Año', '2', '3', '4', '5'];
-  static int _currentstep = 1; //Empieza en 1, termina en 5
-  final ListaDatos listaDatos = new ListaDatos(_currentstep);
+  final arr = ['Año', 'Marca', 'Modelo', 'Motor', ''];
+  static ListaDatos listaDatos = new ListaDatos();
+  static Repuesto _repuesto;
+Widget _crearCarta(Dato _dato) {
+    return Card(
+        margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              ListTile(
+                title: Text(
+                  _dato.getString(),
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.grey[600],
+                  ),
+                ),
+                trailing: Icon(Icons.keyboard_arrow_right),
+                onTap: () {
+                  listaDatos.siguientePaso(_dato);
+                  if(listaDatos.getPaso()==6){
+                    _repuesto = listaDatos.getrepuesto();
+                    listaDatos = new ListaDatos();
+                    Navigator.pop(context, _repuesto);
+                  }
+                  
+                  setState((){});
+                },
+              ),
+            ],
+          ),
+        ));
+  }
+  List<Widget> crearLista() {
+    return listaDatos.getLista().map((dato) => _crearCarta(dato)).toList();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,18 +85,18 @@ class _MakeRequestState extends State<MakeRequest> {
         children: <Widget>[
           StepProgressIndicator(
             totalSteps: 5,
-            currentStep: _currentstep,
+            currentStep: listaDatos.getPaso(),
             size: MediaQuery.of(context).size.height / 14,
             padding: 0,
             selectedColor: Colors.red,
             unselectedColor: Colors.white,
             customStep: (currentStep, color, size) =>
-                (currentStep == _currentstep - 1)
+                (currentStep == listaDatos.getPaso() - 1)
                     ? Container(
                         color: Colors.red,
                         child: Center(
                           child: Text(
-                            arr.elementAt(_currentstep - 1),
+                            arr.elementAt(listaDatos.getPaso() - 1),
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
@@ -68,7 +105,7 @@ class _MakeRequestState extends State<MakeRequest> {
                           ),
                         ),
                       )
-                    : (currentStep > _currentstep - 1)
+                    : (currentStep > listaDatos.getPaso() - 1)
                         ? Container(
                             color: Colors.white,
                             child: Icon(
@@ -88,12 +125,14 @@ class _MakeRequestState extends State<MakeRequest> {
           ),
           new Expanded(
             child: new ListView(
-              children: listaDatos.crearLista()
-            
+              addAutomaticKeepAlives: true,
+              addRepaintBoundaries: true,
+              children: crearLista()
             ),
           ),
         ],
       ),
+          
     );
   }
 }

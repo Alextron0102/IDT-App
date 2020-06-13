@@ -1,22 +1,24 @@
 class Dato{
   String _texto;
-  int _posicion;
-  Dato(String texto, int posicion){
+  bool _estado;
+  Dato(String texto){
     _texto = texto;
-    _posicion = posicion;
+    _estado=false;
   }
   //Tengo la ligera sospecha de que no usaremos ninguno de los metodos get y set
-  String getTexto(){
+  String getString(){
     return _texto;
   }
-  int getPosicion(){
-    return _posicion;
+  int getInt(){
+    return int.parse(_texto);
   }
   void setTexto(String texto){
     _texto = texto;
   }
-  void setPosicion(int posicion){
-    _posicion = posicion;
+  bool getestado(){
+    return _estado;
   }
-
+  void setestado(bool estado){
+    _estado = estado;
+  }
 }
