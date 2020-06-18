@@ -12,14 +12,14 @@ const RESOURCES = {
 "assets/assets/images/logo/logotransparent.png": "b9aafe152f2376d21f3438bced8520fd",
 "assets/FontManifest.json": "cdf17630b1df66a903a27e47eea9200b",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"assets/NOTICES": "4e20df046eb8541c4444a853f15b87fb",
+"assets/NOTICES": "1d89ac66ca551aa24dc047d1da43bed5",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "index.html": "cb9ce540ab3624ce262912defa7944be",
 "/": "cb9ce540ab3624ce262912defa7944be",
-"main.dart.js": "2fade9981b3b83985d9d34691835b18c",
+"main.dart.js": "eec957facf677f6eb7e73b42ba81b075",
 "manifest.json": "15f5fdc82ddeff2a1efbd23eceb9ece3"
 };
 
@@ -134,7 +134,7 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
-  if (event.message == 'skipWaiting') {
+  if (event.data == 'skipWaiting') {
     return self.skipWaiting();
   }
 

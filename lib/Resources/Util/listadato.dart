@@ -1,6 +1,5 @@
 import 'package:idtapp/Resources/Util/dato.dart';
 import 'package:idtapp/Resources/Util/repuesto.dart';
-import 'package:flutter/material.dart';
 
 class ListaDatos {
   Repuesto _repuesto = new Repuesto();
@@ -22,24 +21,26 @@ class ListaDatos {
         }
         break;
       case 2:
-        for (var i = 0; i < cantidadanios; i++) {
-          agregar(new Dato('marca $i'));
-        }
+        agregar(new Dato('Audi'));
+        agregar(new Dato('Toyota'));
+        agregar(new Dato('Mitsubishi'));
+        agregar(new Dato('Otro'));
         break;
       case 3:
-        for (var i = 0; i < cantidadanios; i++) {
-          agregar(new Dato('modelo $i'));
-        }
+        agregar(new Dato('ModeloA'));
+        agregar(new Dato('ModeloB'));
+        agregar(new Dato('ModeloC'));
+        agregar(new Dato('ModeloD'));
         break;
       case 4:
-        for (var i = 0; i < cantidadanios; i++) {
-          agregar(new Dato('motor $i'));
-        }
+        agregar(new Dato('MotorA'));
+        agregar(new Dato('MotorB'));
+        agregar(new Dato('MotorC'));
+        agregar(new Dato('MotorD'));
         break;
       case 5:
-        for (var i = 0; i < cantidadanios; i++) {
-          agregar(new Dato('paso5 $i'));
-        }
+        agregar(new Dato('Automatico'));
+        agregar(new Dato('Manual'));
         break;
     }
   }
@@ -65,9 +66,11 @@ class ListaDatos {
   void modificar(String texto, int posicion) {
     _lista[posicion].setTexto(texto);
   }
-  Repuesto getrepuesto(){
+
+  Repuesto getrepuesto() {
     return _repuesto;
   }
+  
   void siguientePaso(Dato _dato) {
     switch (_paso) {
       case 1:

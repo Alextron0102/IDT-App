@@ -59,6 +59,6 @@ class Repuesto {
   }
   @override
   String toString(){
-    return getanio().toString()+getmarca()+getmodelo()+getmotor()+getDatoPrueba();
+    return getmarca()+', '+getanio().toString()+': '+getmodelo()+'\n'+getmotor()+' - '+getDatoPrueba();
   }
 }

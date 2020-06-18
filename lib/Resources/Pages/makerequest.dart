@@ -12,7 +12,7 @@ class MakeRequest extends StatefulWidget {
 }
 
 class _MakeRequestState extends State<MakeRequest> {
-  final arr = ['Año', 'Marca', 'Modelo', 'Motor', ''];
+  final arr = ['Año', 'Marca', 'Modelo', 'Motor', 'Sistema'];
   static ListaDatos listaDatos = new ListaDatos();
   static Repuesto _repuesto;
 Widget _crearCarta(Dato _dato) {
@@ -38,8 +38,7 @@ Widget _crearCarta(Dato _dato) {
                     _repuesto = listaDatos.getrepuesto();
                     listaDatos = new ListaDatos();
                     Navigator.pop(context, _repuesto);
-                  }
-                  
+                  }                  
                   setState((){});
                 },
               ),
@@ -74,7 +73,7 @@ Widget _crearCarta(Dato _dato) {
             child: GestureDetector(
               onTap: () {
                 return messageBox(context, "INFORMACION",
-                    "Siga los pasos para realizar su pedido");
+                    "Seleccione los datos de su carro para realizar su pedido");
               },
               child: Icon(Icons.info, size: 30),
             ),
@@ -99,7 +98,7 @@ Widget _crearCarta(Dato _dato) {
                             arr.elementAt(listaDatos.getPaso() - 1),
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.0,
+                              fontSize: 19.0,
                             ),
                             textAlign: TextAlign.center,
                           ),
