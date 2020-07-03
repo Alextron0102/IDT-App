@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idtapp/Resources/Pages/calculator.dart';
 import 'package:idtapp/Resources/Pages/loginpage.dart';
 import 'package:idtapp/Resources/Pages/carlist.dart';
 import 'package:idtapp/Resources/Pages/makerequest.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         Login.name: (BuildContext context) => Login(),
         CarList.name: (BuildContext context) => CarList(),
         MakeRequest.name: (BuildContext context) => MakeRequest(),
+        Calculator.name: (BuildContext context) => Calculator(),
       }
       // theme: ThemeData(
       //   primarySwatch: Colors.blue,

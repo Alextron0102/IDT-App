@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:idtapp/Resources/Util/messagebox.dart';
 import 'package:idtapp/Resources/Pages/makerequest.dart';
 import 'package:idtapp/Resources/Util/repuesto.dart';
+import 'package:idtapp/Resources/Pages/calculator.dart';
 
 //Lista de vehiculos widget
 class CarList extends StatefulWidget {
@@ -70,6 +71,15 @@ class _CarListState extends State<CarList> {
                       context, "EMAIL", "Disponible en proximas versiones");
                 },
                 child: Icon(Icons.email, size: 30),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, Calculator.name);
+                },
+                child: Icon(Icons.exposure, size: 30),
               ),
             ),
             Padding(

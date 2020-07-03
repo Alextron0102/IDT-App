@@ -12,14 +12,14 @@ const RESOURCES = {
 "assets/assets/images/logo/logotransparent.png": "b9aafe152f2376d21f3438bced8520fd",
 "assets/FontManifest.json": "cdf17630b1df66a903a27e47eea9200b",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"assets/NOTICES": "1d89ac66ca551aa24dc047d1da43bed5",
+"assets/NOTICES": "39dca558b9af8ace50444bf0c480be8a",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "index.html": "cb9ce540ab3624ce262912defa7944be",
 "/": "cb9ce540ab3624ce262912defa7944be",
-"main.dart.js": "eec957facf677f6eb7e73b42ba81b075",
+"main.dart.js": "3da37a53ea9c9cb4e91fdecc9557d38a",
 "manifest.json": "15f5fdc82ddeff2a1efbd23eceb9ece3"
 };
 
@@ -111,7 +111,7 @@ self.addEventListener("fetch", (event) => {
   if (event.request.url == origin || event.request.url.startsWith(origin + '/#')) {
     key = '/';
   }
-  // If the URL is not the the RESOURCE list, skip the cache.
+  // If the URL is not the RESOURCE list, skip the cache.
   if (!RESOURCES[key]) {
     return event.respondWith(fetch(event.request));
   }
