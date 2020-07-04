@@ -72,8 +72,9 @@ class _CalculatorState extends State<Calculator> {
                     autocorrect: false,
                     textAlign: TextAlign.center,
                     onChanged: (text) {
+                      setState((){
                       precio = double.parse(text) * 100;
-                      print(text);
+                      });
                     },
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
